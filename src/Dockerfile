@@ -16,10 +16,9 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt focal main restricted univ
     echo "deb mirror://mirrors.ubuntu.com/mirrors.txt focal-updates main restricted universe multiverse">>/etc/apt/sources.list && \
     echo "deb mirror://mirrors.ubuntu.com/mirrors.txt focal-security main restricted universe multiverse">>/etc/apt/sources.list && \
     echo "deb mirror://mirrors.ubuntu.com/mirrors.txt focal-backports main restricted universe multiverse">>/etc/apt/sources.list && \
-    rm -rf /var/lib/apt/lists/*
-    
-RUN apt-get update && \
-    apt-get install -y -f ninja-build wget bzip2 binutils binutils-common gnupg gpgv manpages- manpages-dev- --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/* && \
+    apt-get update && \
+    apt-get install -y -f ninja-build wget bzip2 binutils binutils-common git gnupg manpages- manpages-dev- --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
     
